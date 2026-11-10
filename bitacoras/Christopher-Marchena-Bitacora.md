@@ -88,7 +88,7 @@
 - SQLite porque no necesita servidor, y validación de cada lectura con respuesta 400 si viene mal.
 
 ### Pruebas efectuadas
-- `py -m pytest -v`: 18 de 19 pruebas pasaron; la que falló depende de la carpeta del dashboard.
+- `py -m pytest -v`: 19 de 19 pruebas pasaron.
 ### Aprendizajes obtenidos
 - Qué es una función pura y cómo `map`, `filter` y `reduce` reemplazan los ciclos con acumuladores.
 ### Próximos pasos
