@@ -1,7 +1,7 @@
 # Bitácora de desarrollo del Dashboard
 
 **Proyecto:** Monitor IoT de tanque de agua  
-**Responsable:** Christopher Marchena Telles
+**Responsable:** Christopher López Meléndez
 
 ## Semana 1 — 17/10/2026 al 24/10/2026
 
