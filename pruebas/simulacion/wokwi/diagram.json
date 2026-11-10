@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "author": "Anthony Carranza Mejia",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonico", "top": -200, "left": -180, "attrs": { "distance": "100" } },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -220, "left": 140, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-rgb-led", "id": "rgb", "top": 20, "left": 380, "attrs": { "common": "cathode" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 120, "left": 250, "rotate": 0, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 150, "left": 250, "rotate": 0, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 180, "left": 250, "rotate": 0, "attrs": { "value": "220" } },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 230, "left": 380, "attrs": { "volume": "0.2" } },
+    { "type": "wokwi-servo", "id": "valvula", "top": 300, "left": 180, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "sensor_agua", "top": 120, "left": -220, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "boton", "top": 260, "left": -200, "attrs": { "color": "green" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "ultrasonico:VCC", "esp:5V", "red", [] ],
+    [ "ultrasonico:GND", "esp:GND.2", "black", [] ],
+    [ "ultrasonico:TRIG", "esp:5", "orange", [] ],
+    [ "ultrasonico:ECHO", "esp:18", "yellow", [] ],
+
+    [ "lcd:VCC", "esp:5V", "red", [] ],
+    [ "lcd:GND", "esp:GND.2", "black", [] ],
+    [ "lcd:SDA", "esp:21", "blue", [] ],
+    [ "lcd:SCL", "esp:22", "violet", [] ],
+
+    [ "esp:25", "r1:1", "red", [] ],
+    [ "esp:26", "r2:1", "green", [] ],
+    [ "esp:27", "r3:1", "blue", [] ],
+    [ "r1:2", "rgb:R", "red", [] ],
+    [ "r2:2", "rgb:G", "green", [] ],
+    [ "r3:2", "rgb:B", "blue", [] ],
+    [ "rgb:COM", "esp:GND.3", "black", [] ],
+
+    [ "buzzer:2", "esp:14", "orange", [] ],
+    [ "buzzer:1", "esp:GND.3", "black", [] ],
+
+    [ "valvula:PWM", "esp:13", "orange", [] ],
+    [ "valvula:V+", "esp:5V", "red", [] ],
+    [ "valvula:GND", "esp:GND.1", "black", [] ],
+
+    [ "sensor_agua:SIG", "esp:34", "green", [] ],
+    [ "sensor_agua:VCC", "esp:3V3", "red", [] ],
+    [ "sensor_agua:GND", "esp:GND.1", "black", [] ],
+
+    [ "boton:1.r", "esp:4", "green", [] ],
+    [ "boton:2.r", "esp:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1260" width="100%" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="1400" height="1260" fill="#ffffff"/>
+
+  <!-- Titulo -->
+  <text x="700" y="44" text-anchor="middle" font-size="28" font-weight="700" fill="#1d2733">Monitor de tanque · conexiones al ESP32</text>
+  <text x="700" y="74" text-anchor="middle" font-size="16" fill="#5f6b78">Los cables de color van a un pin del ESP32. Las etiquetas 5V, 3V3 y GND van a las filas de alimentación de la protoboard.</text>
+
+  <!-- ===================== ESP32 ===================== -->
+  <rect x="600" y="250" width="200" height="470" rx="10" fill="#1f2428"/>
+  <rect x="640" y="262" width="120" height="70" rx="4" fill="#9aa3ab"/>
+  <text x="700" y="303" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2428">ESP32</text>
+  <text x="700" y="360" text-anchor="middle" font-size="13" fill="#c9d1d9">DevKit V1</text>
+  <rect x="680" y="690" width="40" height="30" rx="3" fill="#b8bec4"/>
+  <text x="700" y="745" text-anchor="middle" font-size="13" fill="#5f6b78">USB a la laptop</text>
+
+  <!-- Pines izquierda -->
+  <g font-size="12" fill="#e6ebf0">
+    <text x="612" y="304">EN</text><text x="612" y="332">VP</text><text x="612" y="360">VN</text>
+    <text x="612" y="388">D34</text><text x="612" y="416">D35</text><text x="612" y="444">D32</text>
+    <text x="612" y="472">D33</text><text x="612" y="500">D25</text><text x="612" y="528">D26</text>
+    <text x="612" y="556">D27</text><text x="612" y="584">D14</text><text x="612" y="612">D12</text>
+    <text x="612" y="640">D13</text><text x="612" y="668">GND</text><text x="612" y="696">VIN</text>
+  </g>
+  <!-- Pines derecha -->
+  <g font-size="12" fill="#e6ebf0" text-anchor="end">
+    <text x="788" y="304">D23</text><text x="788" y="332">D22</text><text x="788" y="360">TX0</text>
+    <text x="788" y="388">RX0</text><text x="788" y="416">D21</text><text x="788" y="444">D19</text>
+    <text x="788" y="472">D18</text><text x="788" y="500">D5</text><text x="788" y="528">TX2</text>
+    <text x="788" y="556">RX2</text><text x="788" y="584">D4</text><text x="788" y="612">D2</text>
+    <text x="788" y="640">D15</text><text x="788" y="668">GND</text><text x="788" y="696">3V3</text>
+  </g>
+  <!-- Puntos de pines usados -->
+  <g fill="#f5c518">
+    <circle cx="600" cy="384" r="5"/><circle cx="600" cy="496" r="5"/><circle cx="600" cy="524" r="5"/>
+    <circle cx="600" cy="552" r="5"/><circle cx="600" cy="580" r="5"/><circle cx="600" cy="636" r="5"/>
+    <circle cx="800" cy="328" r="5"/><circle cx="800" cy="412" r="5"/><circle cx="800" cy="468" r="5"/>
+    <circle cx="800" cy="496" r="5"/><circle cx="800" cy="580" r="5"/>
+  </g>
+  <!-- Pines de alimentacion del ESP32 -->
+  <g stroke-width="4" fill="none">
+    <path d="M600 664 H560" stroke="#222"/>
+    <path d="M600 692 H560" stroke="#d62828"/>
+    <path d="M800 664 H840" stroke="#222"/>
+    <path d="M800 692 H840" stroke="#f08c00"/>
+  </g>
+  <g font-size="12" font-weight="700">
+    <rect x="512" y="654" width="48" height="20" rx="10" fill="#222"/><text x="536" y="668" text-anchor="middle" fill="#fff">GND</text>
+    <rect x="512" y="682" width="48" height="20" rx="10" fill="#d62828"/><text x="536" y="696" text-anchor="middle" fill="#fff">5V</text>
+    <rect x="840" y="654" width="48" height="20" rx="10" fill="#222"/><text x="864" y="668" text-anchor="middle" fill="#fff">GND</text>
+    <rect x="840" y="682" width="48" height="20" rx="10" fill="#f08c00"/><text x="864" y="696" text-anchor="middle" fill="#fff">3V3</text>
+  </g>
+
+  <!-- ===================== IZQUIERDA ===================== -->
+
+  <!-- Sensor de humedad (modulo LM393 + sonda) -->
+  <rect x="30" y="300" width="70" height="120" rx="6" fill="#e9d98a" stroke="#b8a24a"/>
+  <text x="65" y="355" text-anchor="middle" font-size="12" fill="#5a4a00">sonda</text>
+  <text x="65" y="371" text-anchor="middle" font-size="12" fill="#5a4a00">(en la base</text>
+  <text x="65" y="387" text-anchor="middle" font-size="12" fill="#5a4a00">del tanque)</text>
+  <path d="M100 340 H150 M100 360 H150" stroke="#555" stroke-width="2"/>
+  <rect x="150" y="320" width="180" height="130" rx="8" fill="#1e5aa8"/>
+  <text x="240" y="300" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2733">Sensor de agua (humedad)</text>
+  <text x="240" y="314" text-anchor="middle" font-size="12" fill="#5f6b78">módulo LM393</text>
+  <g font-size="12" fill="#fff" text-anchor="end">
+    <text x="322" y="388">AO</text><text x="322" y="408">DO</text><text x="322" y="428">GND</text><text x="322" y="448">VCC</text>
+  </g>
+  <path d="M330 384 H600" stroke="#2b9348" stroke-width="4" fill="none"/>
+  <text x="345" y="404" font-size="12" fill="#5f6b78">DO: sin conectar</text>
+  <path d="M330 424 H370" stroke="#222" stroke-width="3"/>
+  <rect x="370" y="414" width="44" height="20" rx="10" fill="#222"/><text x="392" y="428" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">GND</text>
+  <path d="M330 444 H370" stroke="#f08c00" stroke-width="3"/>
+  <rect x="370" y="436" width="44" height="20" rx="10" fill="#f08c00"/><text x="392" y="450" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">3V3</text>
+
+  <!-- LED RGB (modulo) -->
+  <text x="190" y="478" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2733">LED RGB (módulo)</text>
+  <rect x="110" y="486" width="160" height="100" rx="8" fill="#1f2428"/>
+  <circle cx="160" cy="536" r="20" fill="#f2f2f2" stroke="#999"/>
+  <g font-size="12" fill="#fff" text-anchor="end">
+    <text x="262" y="500">R</text><text x="262" y="528">G</text><text x="262" y="556">B</text><text x="262" y="580">−</text>
+  </g>
+  <g stroke-width="4" fill="none">
+    <path d="M270 496 H600" stroke="#d62828"/>
+    <path d="M270 524 H600" stroke="#2b9348"/>
+    <path d="M270 552 H600" stroke="#1971c2"/>
+  </g>
+  <!-- resistencias 220 -->
+  <g>
+    <rect x="420" y="488" width="50" height="16" rx="3" fill="#d2b48c" stroke="#8b6b3d"/>
+    <rect x="420" y="516" width="50" height="16" rx="3" fill="#d2b48c" stroke="#8b6b3d"/>
+    <rect x="420" y="544" width="50" height="16" rx="3" fill="#d2b48c" stroke="#8b6b3d"/>
+    <g font-size="11" fill="#5a3d12" text-anchor="middle"><text x="445" y="500">220Ω</text><text x="445" y="528">220Ω</text><text x="445" y="556">220Ω</text></g>
+  </g>
+  <path d="M270 576 H300" stroke="#222" stroke-width="3"/>
+  <rect x="300" y="566" width="44" height="20" rx="10" fill="#222"/><text x="322" y="580" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">GND</text>
+
+  <!-- Buzzer -->
+  <text x="190" y="616" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2733">Buzzer</text>
+  <circle cx="190" cy="660" r="32" fill="#1f2428"/>
+  <circle cx="190" cy="660" r="6" fill="#555"/>
+  <g font-size="12" fill="#1d2733"><text x="236" y="642">+</text><text x="236" y="690">−</text></g>
+  <path d="M222 646 H520 V580 H600" stroke="#e8590c" stroke-width="4" fill="none"/>
+  <path d="M222 686 H260" stroke="#222" stroke-width="3"/>
+  <rect x="260" y="676" width="44" height="20" rx="10" fill="#222"/><text x="282" y="690" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">GND</text>
+
+  <!-- Servo -->
+  <text x="190" y="736" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2733">Servo SG92R (válvula)</text>
+  <rect x="110" y="746" width="150" height="70" rx="8" fill="#3b4cca"/>
+  <rect x="70" y="766" width="40" height="12" rx="6" fill="#222"/>
+  <text x="185" y="786" text-anchor="middle" font-size="12" fill="#fff">SG92R</text>
+  <g font-size="12" fill="#1d2733"><text x="268" y="758">naranja: señal</text><text x="268" y="788">rojo: +</text><text x="268" y="834">marrón: −</text></g>
+  <path d="M260 762 H580 V636 H600" stroke="#f08c00" stroke-width="4" fill="none"/>
+  <path d="M260 792 H330" stroke="#d62828" stroke-width="3"/>
+  <rect x="330" y="782" width="44" height="20" rx="10" fill="#d62828"/><text x="352" y="796" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">5V</text>
+  <path d="M260 812 H350" stroke="#8b4513" stroke-width="3"/>
+  <rect x="350" y="802" width="44" height="20" rx="10" fill="#222"/><text x="372" y="816" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">GND</text>
+
+  <!-- ===================== DERECHA ===================== -->
+
+  <!-- LCD I2C -->
+  <text x="1200" y="108" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2733">Pantalla LCD 16x2 con I2C</text>
+  <rect x="1060" y="118" width="300" height="120" rx="8" fill="#2f9e44"/>
+  <rect x="1090" y="140" width="250" height="76" rx="4" fill="#3b5bdb"/>
+  <text x="1104" y="172" font-size="16" font-family="Consolas, monospace" fill="#dbe4ff">Nivel:  75%  W</text>
+  <text x="1104" y="198" font-size="16" font-family="Consolas, monospace" fill="#dbe4ff">Valvula: CERRADA</text>
+  <g font-size="11" fill="#fff">
+    <text x="1064" y="134">GND</text><text x="1064" y="162">VCC</text><text x="1064" y="190">SDA</text><text x="1064" y="218">SCL</text>
+  </g>
+  <path d="M1010 130 H1060" stroke="#222" stroke-width="3"/>
+  <path d="M1010 158 H1060" stroke="#d62828" stroke-width="3"/>
+  <path d="M1060 186 H880 V412 H800" stroke="#1971c2" stroke-width="4" fill="none"/>
+  <path d="M1060 214 H830 V328 H800" stroke="#7048e8" stroke-width="4" fill="none"/>
+  <rect x="966" y="120" width="44" height="20" rx="10" fill="#222"/><text x="988" y="134" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">GND</text>
+  <rect x="966" y="148" width="44" height="20" rx="10" fill="#d62828"/><text x="988" y="162" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">5V</text>
+
+  <!-- Ultrasonico HY-SRF05 -->
+  <text x="1200" y="318" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2733">Ultrasónico HY-SRF05 (arriba, mirando al agua)</text>
+  <rect x="1060" y="328" width="300" height="150" rx="8" fill="#1e5aa8"/>
+  <circle cx="1170" cy="403" r="38" fill="#c9d1d9" stroke="#868e96" stroke-width="4"/>
+  <circle cx="1280" cy="403" r="38" fill="#c9d1d9" stroke="#868e96" stroke-width="4"/>
+  <g font-size="11" fill="#fff">
+    <text x="1064" y="346">VCC</text><text x="1064" y="374">Trig</text><text x="1064" y="404">Echo</text>
+    <text x="1064" y="434">OUT</text><text x="1064" y="464">GND</text>
+  </g>
+  <!-- Trig -->
+  <path d="M1060 370 H850 V496 H800" stroke="#e8590c" stroke-width="4" fill="none"/>
+  <!-- Echo con divisor -->
+  <path d="M1060 400 H1040" stroke="#fab005" stroke-width="4"/>
+  <rect x="990" y="392" width="50" height="16" rx="3" fill="#d2b48c" stroke="#8b6b3d"/>
+  <text x="1015" y="404" text-anchor="middle" font-size="11" fill="#5a3d12">1 kΩ</text>
+  <path d="M990 400 H900 V468 H800" stroke="#fab005" stroke-width="4" fill="none"/>
+  <circle cx="900" cy="440" r="5" fill="#fab005"/>
+  <path d="M900 440 H930" stroke="#fab005" stroke-width="3"/>
+  <rect x="930" y="432" width="50" height="16" rx="3" fill="#d2b48c" stroke="#8b6b3d"/>
+  <text x="955" y="444" text-anchor="middle" font-size="11" fill="#5a3d12">2 kΩ</text>
+  <path d="M980 440 H988" stroke="#222" stroke-width="3"/>
+  <rect x="988" y="430" width="44" height="20" rx="10" fill="#222"/><text x="1010" y="444" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">GND</text>
+  <text x="905" y="530" font-size="12" fill="#5f6b78">divisor de voltaje: protege</text>
+  <text x="905" y="545" font-size="12" fill="#5f6b78">el pin D18 (5 V → 3,3 V)</text>
+  <!-- VCC, GND, OUT -->
+  <path d="M1060 342 H1046" stroke="#d62828" stroke-width="3"/>
+  <rect x="1002" y="332" width="44" height="20" rx="10" fill="#d62828"/><text x="1024" y="346" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">5V</text>
+  <text x="1210" y="470" text-anchor="middle" font-size="11" fill="#dbe4ff">OUT: sin conectar</text>
+  <path d="M1060 460 H1046" stroke="#222" stroke-width="3"/>
+  <rect x="1002" y="450" width="44" height="20" rx="10" fill="#222"/><text x="1024" y="464" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">GND</text>
+
+  <!-- Pulsador -->
+  <text x="1150" y="566" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2733">Pulsador (silenciar alarma)</text>
+  <rect x="1090" y="576" width="80" height="60" rx="6" fill="#adb5bd"/>
+  <circle cx="1130" cy="606" r="16" fill="#343a40"/>
+  <path d="M1090 580 H800" stroke="#2b9348" stroke-width="4" fill="none"/>
+  <path d="M1170 620 H1200" stroke="#222" stroke-width="3"/>
+  <rect x="1200" y="610" width="44" height="20" rx="10" fill="#222"/><text x="1222" y="624" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">GND</text>
+  <text x="1180" y="656" font-size="12" fill="#5f6b78">usar dos patas en diagonal</text>
+
+  <!-- ===================== PROTOBOARD / ALIMENTACION ===================== -->
+  <rect x="30" y="860" width="1340" height="120" rx="10" fill="#f4f6f8" stroke="#dde3ea"/>
+  <text x="50" y="890" font-size="16" font-weight="700" fill="#1d2733">Filas de alimentación de la protoboard</text>
+  <rect x="50" y="905" width="420" height="16" rx="8" fill="#d62828"/>
+  <text x="485" y="918" font-size="14" fill="#1d2733"><tspan font-weight="700">5V</tspan> ← pin VIN del ESP32: ultrasónico, LCD y servo</text>
+  <rect x="50" y="929" width="420" height="16" rx="8" fill="#222"/>
+  <text x="485" y="942" font-size="14" fill="#1d2733"><tspan font-weight="700">GND</tspan> ← pin GND del ESP32: TODOS los GND se unen aquí</text>
+  <rect x="50" y="953" width="420" height="16" rx="8" fill="#f08c00"/>
+  <text x="485" y="966" font-size="14" fill="#1d2733"><tspan font-weight="700">3V3</tspan> ← pin 3V3 del ESP32: solo el sensor de agua (para no pasar de 3,3 V en D34)</text>
+
+  <!-- ===================== LISTA DE MATERIALES ===================== -->
+  <text x="50" y="1022" font-size="18" font-weight="700" fill="#1d2733">Lista de materiales</text>
+  <g font-size="14" fill="#1d2733">
+    <text x="50" y="1050">☐ ESP32 DevKit V1 + cable USB de datos</text>
+    <text x="50" y="1074">☐ Ultrasónico HY-SRF05 (o HC-SR04)</text>
+    <text x="50" y="1098">☐ Sonda de humedad + módulo LM393</text>
+    <text x="50" y="1122">☐ LCD 16x2 con adaptador I2C</text>
+    <text x="50" y="1146">☐ Módulo LED RGB</text>
+    <text x="500" y="1050">☐ Buzzer</text>
+    <text x="500" y="1074">☐ Servo SG92R</text>
+    <text x="500" y="1098">☐ Pulsador</text>
+    <text x="500" y="1122">☐ 3 resistencias de 220 Ω</text>
+    <text x="500" y="1146">☐ 1 resistencia de 1 kΩ y 1 de 2 kΩ (o dos de 1 kΩ en serie)</text>
+    <text x="950" y="1050">☐ Protoboard</text>
+    <text x="950" y="1074">☐ Jumpers macho-macho y macho-hembra</text>
+    <text x="950" y="1098">☐ Recipiente transparente de 2–5 L</text>
+    <text x="950" y="1122">☐ Soporte para el sensor arriba (cartón)</text>
+    <text x="950" y="1146">☐ Regla pegada al recipiente</text>
+  </g>
+  <text x="50" y="1196" font-size="13" fill="#5f6b78">No se usan: NodeMCU, DHT11, PCA9685, encoder, broche de 9 V ni los LEDs sueltos.</text>
+  <text x="50" y="1218" font-size="13" fill="#5f6b78">Si el ESP32 se reinicia al moverse el servo, conectarlo a un cargador de celular de 2 A en lugar de la laptop.</text>
+  <text x="50" y="1240" font-size="13" fill="#5f6b78">Si el LCD prende pero no muestra texto: girar el potenciómetro azul de atrás o cambiar LCD_DIRECCION a 0x3F en config.h.</text>
+</svg>

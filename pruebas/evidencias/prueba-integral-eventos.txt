@@ -1,0 +1,17 @@
+Prueba integral ESP32 fisico -> servidor Flask -> dashboard (2026-11-09, enlace por USB, sin WiFi)
+
+EVENTOS
+2026-11-09T16:17:03 nivel_critico - Nivel critico: 0 %
+2026-11-09T16:17:03 valvula_abierta - Valvula abierta con nivel 0 %
+2026-11-09T16:16:58 fuga_resuelta - La base del tanque esta seca
+2026-11-09T16:16:48 fuga_detectada - Se detecto agua en la base del tanque
+2026-11-09T16:16:03 valvula_cerrada - Valvula cerrada con nivel 100 %
+2026-11-09T16:15:58 valvula_abierta - Valvula abierta con nivel 83 %
+2026-11-09T16:15:43 nivel_normal - Nivel recuperado: 92 %
+2026-11-09T16:15:43 valvula_cerrada - Valvula cerrada con nivel 92 %
+2026-11-09T16:15:18 nivel_critico - Nivel critico: 0 %
+2026-11-09T16:15:18 valvula_abierta - Valvula abierta con nivel 0 %
+
+RESUMEN
+{"consumo_estimado_litros":5.52,"eventos_por_tipo":{"fuga_detectada":1,"fuga_resuelta":1,"nivel_critico":2,"nivel_normal":1,"valvula_abierta":3,"valvula_cerrada":2},"nivel_actual":0,"nivel_maximo":100,"nivel_minimo":0,"nivel_promedio":52.6,"promedio_diario":{"2026-11-09":52.6},"total_alarmas":3,"total_lecturas":28}
+
