@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monitor de tanque</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Monitor de tanque de agua</h1>
+    <p id="conexion" class="conexion">Conectando…</p>
+  </header>
+
+  <main>
+    <section class="tarjetas">
+      <article class="tarjeta tanque">
+        <h2>Nivel actual</h2>
+        <div class="tanque-visual" aria-hidden="true">
+          <div id="agua" class="agua"></div>
+        </div>
+        <p id="nivel" class="valor">–</p>
+        <p id="estado" class="etiqueta">–</p>
+      </article>
+
+      <article class="tarjeta">
+        <h2>Válvula</h2>
+        <p id="valvula" class="valor">–</p>
+        <p class="etiqueta">Abre bajo 20 % · cierra sobre 90 %</p>
+      </article>
+
+      <article class="tarjeta">
+        <h2>Fuga</h2>
+        <p id="fuga" class="valor">–</p>
+        <p id="alarma" class="etiqueta">–</p>
+      </article>
+
+      <article class="tarjeta">
+        <h2>Resumen</h2>
+        <dl class="resumen">
+          <dt>Promedio</dt><dd id="promedio">–</dd>
+          <dt>Mín / máx</dt><dd id="minmax">–</dd>
+          <dt>Consumo estimado</dt><dd id="consumo">–</dd>
+          <dt>Alarmas</dt><dd id="total-alarmas">–</dd>
+        </dl>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Histórico del nivel</h2>
+      <div class="contenedor-grafico"><canvas id="grafico"></canvas></div>
+    </section>
+
+    <section class="panel">
+      <h2>Alarmas y eventos</h2>
+      <ul id="eventos" class="eventos"><li class="vacio">Sin eventos todavía</li></ul>
+    </section>
+  </main>
+
+  <footer>Se actualiza solo cada 5 s · Proyecto Integrador · Paradigmas de Programación</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="js/grafico.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
