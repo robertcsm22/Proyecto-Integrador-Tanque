@@ -26,3 +26,5 @@ desktop.ini
 # Respaldos de draw.io
 *.drawio.bkp
 *.drawio.dtmp
+
+.pytest_cache/
