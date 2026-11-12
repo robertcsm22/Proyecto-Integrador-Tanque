@@ -17,7 +17,7 @@ const int PIN_SERVO    = 13;  // alimentado con fuente aparte y GND comun (RNF-0
 const int PIN_PULSADOR = 4;   // a GND, con INPUT_PULLUP
 
 // ---------------- Tanque y umbrales ----------------
-const float ALTURA_TANQUE_CM = 20.0;  // distancia del sensor al fondo (medir en la maqueta)
+const float ALTURA_TANQUE_CM = 16.8;  // distancia del sensor al fondo (medido en la maqueta = 0 %)
 const float DISTANCIA_LLENO_CM = 4.0; // distancia del sensor al agua con el tanque lleno (100 %)
 const int   UMBRAL_ABRIR     = 20;    // %: abrir valvula por debajo (RF-06)
 const int   UMBRAL_CERRAR    = 90;    // %: cerrar valvula por encima (RF-06)
