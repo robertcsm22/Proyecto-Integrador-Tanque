@@ -259,9 +259,3 @@
 - El monitor serie permite distinguir si una falla proviene del programa o del cableado.
 - Calibrar con las medidas reales de la maqueta hace que el nivel mostrado corresponda con el tanque.
 - Un servomotor necesita más corriente de la que puede entregar el ESP32 por USB.
-
-### Próximos pasos
-
-- Conseguir una fuente de alimentación de 5 V independiente para el servomotor, uniendo su GND con el del ESP32.
-- Repetir la prueba de apertura y cierre de la válvula con el servomotor alimentado correctamente.
-- Configurar el WiFi para enviar los datos al servidor sin cable.
