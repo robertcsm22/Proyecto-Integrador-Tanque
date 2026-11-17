@@ -207,3 +207,61 @@
 - Conseguir un repuesto del servomotor con algun amigo que no lo necesite.
 - Hacer nuevas pruebas para probar la funcionalidad con el servomotor.
 - Configurar el Wi-fi de la universidad para ser compatible con el circuito.
+
+---
+
+## Semana 4 — 16/11/2026
+
+### Actividades realizadas
+
+- Cambié la posición del pulsador en la protoboard: primero lo pasé al final (filas 59 y 61) y finalmente lo dejé en las filas 1 y 3, con `1a` → D4 y `3j` → riel negativo (GND).
+- Calibré el sensor ultrasónico con la maqueta, tomando como referencia las distancias reales del tanque vacío y del tanque lleno.
+- Revisé nuevamente el servomotor para determinar la causa de que no girara.
+
+### Avances
+
+- El pulsador quedó funcionando en su nueva posición y silencia la alarma, generando el evento `alarma_silenciada`.
+- El sensor ultrasónico quedó calibrado: el 0 % corresponde a 16,8 cm del sensor y el 100 % a 3,0 cm.
+- Se determinó que el servomotor sí funciona, pero no recibe suficiente corriente y por eso no llega a girar.
+- Se registró la calibración mediante los commits `c238e17` (altura del tanque a 16,8 cm) y `ae10c55` (distancia de tanque lleno a 3,0 cm), unidos a la rama `main` mediante el Pull Request #2.
+
+### Dificultades encontradas
+
+- En la nueva posición del final de la protoboard, el pulsador no respondía al presionarlo.
+- Al mover el pulsador se aflojaron algunas conexiones y el buzzer dejó de sonar.
+- Con la calibración anterior (altura de 20 cm), el nivel mostrado no coincidía con las medidas reales de la maqueta.
+- El servomotor zumbaba y vibraba, pero no giraba.
+
+### Soluciones implementadas
+
+- Conecté los cables del pulsador, que no se habían colocado en la nueva posición, y lo reubiqué en las filas 1 y 3, que no interfieren con el divisor de voltaje del sensor ultrasónico.
+- Revisé las conexiones del buzzer (`25j` → D14 y `28j` → GND) y del sensor de agua, comprobando mediante el monitor serie que el programa sí activaba la alarma.
+- Medí la distancia del sensor ultrasónico en el punto vacío y en el punto lleno de la maqueta, y ajusté `ALTURA_TANQUE_CM = 16.8` y `DISTANCIA_LLENO_CM = 3.0` en `config.h`.
+- Identifiqué que la falla del servomotor se debe a la falta de corriente y no a un daño en el componente.
+
+### Decisiones técnicas
+
+- Ubicar el pulsador en las filas 1 y 3, con las conexiones en diagonal, para que funcione sin importar la orientación del botón.
+- Calibrar el nivel con medidas reales de la maqueta en lugar de valores supuestos.
+- Mantener el margen del 3 %: la alarma por nivel crítico se activa por debajo del 17 % y se desactiva al superar el 23 %.
+
+### Pruebas efectuadas
+
+- **Pulsador:** con la alarma sonando, al presionarlo se silenció y se registró el evento `alarma_silenciada`.
+- **Buzzer:** volvió a sonar con nivel crítico después de revisar las conexiones.
+- **Calibración del 0 %:** en el punto vacío, el monitor serie mostró una distancia de 16,9 cm, nivel 0 %, estado crítico y alarma activa.
+- **Calibración del 100 %:** en el punto lleno, el monitor serie mostró una distancia de 3,0 cm, nivel 100 % y válvula cerrada.
+- **Servomotor:** recibe la señal de control, pero no gira por falta de corriente.
+
+### Aprendizajes obtenidos
+
+- Mover un componente en la protoboard puede aflojar otras conexiones; conviene revisar todo el circuito después de cada cambio.
+- El monitor serie permite distinguir si una falla proviene del programa o del cableado.
+- Calibrar con las medidas reales de la maqueta hace que el nivel mostrado corresponda con el tanque.
+- Un servomotor necesita más corriente de la que puede entregar el ESP32 por USB.
+
+### Próximos pasos
+
+- Conseguir una fuente de alimentación de 5 V independiente para el servomotor, uniendo su GND con el del ESP32.
+- Repetir la prueba de apertura y cierre de la válvula con el servomotor alimentado correctamente.
+- Configurar el WiFi para enviar los datos al servidor sin cable.
