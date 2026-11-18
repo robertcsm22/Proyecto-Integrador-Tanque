@@ -93,3 +93,30 @@
 - Qué es una función pura y cómo `map`, `filter` y `reduce` reemplazan los ciclos con acumuladores.
 ### Próximos pasos
 - Armar la maqueta y probar el backend con el ESP32 real.
+
+Semana 4 — 08/11/2026 a 14/11/2026
+Actividades realizadas
+
+Construimos la maqueta del tanque de agua.
+Nos reunimos como grupo para montar el circuito sobre la maqueta: sensores, ESP32 , etc.
+
+Avances
+Maqueta terminada con el circuito montado y funcionando.
+
+Dificultades encontradas
+La organización de los cables: al pasar el circuito de la protoboard a la maqueta, los cables quedaban desordenados y era difícil identificar y revisar las conexiones.
+La posición del sensor ultrasónico: en la ubicación inicial no medía correctamente el nivel del agua.
+
+Soluciones implementadas
+Reorganizamos el recorrido de los cables para que cada conexión quedara ordenada e identificable.
+Ajustamos la posición del sensor sobre el tanque hasta que las lecturas del nivel fueran correctas.
+
+Decisiones técnicas
+Ubicar el sensor según las lecturas obtenidas en la maqueta real, y no solo según las medidas del diseño que teniamos.
+
+Pruebas efectuadas
+Después de ajustar el sensor, verificamos que midiera correctamente el nivel del agua en la maqueta.
+
+Aprendizajes obtenidos
+La posición del sensor ultrasónico afecta directamente la precisión de la medición.
+Ordenar los cables desde el inicio nos facilitaba a encontrar y corregir errores en el circuito.
