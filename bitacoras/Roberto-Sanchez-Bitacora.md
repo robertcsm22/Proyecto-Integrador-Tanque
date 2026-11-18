@@ -18,6 +18,7 @@ Nota: el grupo trabajó en local durante las primeras semanas y subió todo al r
 ### Decisiones técnicas
 - Dejar las credenciales WiFi fuera del repositorio: `secrets.h` en `.gitignore` y una plantilla `secrets.example.h`.
 - Pedir commits desde la cuenta de cada integrante, pequeños y frecuentes, porque el enunciado evalúa la trazabilidad individual.
+- (equipo) HTTP POST con JSON en lugar de MQTT, por ser más simple.
 
 ### Pruebas efectuadas
 - No aplica en mi parte.
@@ -43,16 +44,16 @@ Nota: el grupo trabajó en local durante las primeras semanas y subió todo al r
 - Prueba integral ESP32, servidor y dashboard por USB.
 
 ### Dificultades del equipo
-- El servomotor no gira en las pruebas y probablemente hay que reemplazarlo.
+- El servomotor no gira en las pruebas.
 
-## Semana 4 — 08/11/2026 al 11/11/2026
+## Semana 4 — 08/11/2026 al 14/11/2026
 
 ### Actividades realizadas
 - Clonar el repositorio y revisar su estado actual: firmware y backend de mis compañeros, el dashboard recién subido, las simulaciones, las evidencias y las bitácoras.
 - Revisar la documentación preparada por el grupo contra el código del repositorio y contra el montaje real, y ajustar lo que no coincidía.
 - Integrar al repositorio la documentación en `docs/`: requerimientos, arquitectura, justificación del dispositivo, los tres paradigmas, pruebas y manual de ejecución.
 - Agregar el `README.md` principal (el repositorio no tenía uno) y el `README.md` del dashboard.
-- Trabajar en la rama `docs/documentacion-final` y subirla a GitHub para abrir el Pull Request a `develop`.
+- Trabajar en la rama `docs/documentacion-final`, subirla a GitHub e integrarla en `main`.
 
 ### Avances
 - Commit: `a862093` — "chore: ignorar .pytest_cache"
@@ -64,7 +65,9 @@ Nota: el grupo trabajó en local durante las primeras semanas y subió todo al r
 - Commit: `04a09ab` — "docs(docs): pruebas, resultados y limitaciones"
 - Commit: `8a6dbe3` — "docs(docs): manual de ejecucion e indice"
 - Commit: `fb15bec` — "docs: README principal"
-- `develop` quedó sincronizada con `main` antes de crear la rama.
+- Commit: `7082405` — "bitacora(roberto): bitacora del proyecto hasta semana 4"
+- `develop` quedó sincronizada con `main` antes de crear la rama, y mis commits quedaron integrados en `main`.
+- (equipo) Se construyó la maqueta del tanque y se montó el circuito sobre ella.
 
 ### Dificultades encontradas
 - Al revisar la documentación encontré diferencias con lo que realmente se armó: el divisor de voltaje del Echo estaba como 1 kΩ y 2 kΩ y se usaron dos de 10 kΩ (cerca de 2,5 V en el pin), y el servo aparecía con fuente propia cuando se alimenta desde VIN.
@@ -85,7 +88,7 @@ Nota: el grupo trabajó en local durante las primeras semanas y subió todo al r
 
 ### Pruebas efectuadas
 - Con `git status` verifiqué que solo se agregaran mis archivos y que no se modificara `backend/` ni `firmware/`.
-- Con `git log --oneline` verifiqué que los 9 commits quedaran en orden sobre `develop`.
+- Con `git log --oneline` verifiqué que los commits quedaran en orden sobre `develop`.
 
 ### Aprendizajes obtenidos
 - Cómo trabajar con ramas, commits pequeños con mensajes con prefijo (`docs`, `chore`) y Pull Requests, y por qué dejan rastro individual del trabajo.
@@ -93,6 +96,40 @@ Nota: el grupo trabajó en local durante las primeras semanas y subió todo al r
 - Repasé los tres paradigmas del proyecto para poder explicarlos: clases por componente en el firmware, eventos e interrupción del pulsador, y funciones puras con `map`, `filter` y `reduce` en el backend.
 
 ### Próximos pasos
-- Abrir y completar el Pull Request a `develop`, y luego de `develop` a `main`.
-- Comprobar en una carpeta limpia: `git clone`, `py -m pytest` y `py app.py`, y que los diagramas y enlaces se vean bien en GitHub.
+- Redactar el artículo de investigación del proyecto.
+- Actualizar la documentación con los resultados de la maqueta.
+
+## Semana 5 — 15/11/2026 al 17/11/2026
+
+### Actividades realizadas
+- Redacté el artículo de investigación del proyecto, con la estructura académica que pide el enunciado: planteamiento de la problemática, objetivos, fundamentación teórica, metodología, resultados, discusión y conclusiones, con las citas dentro del texto y las referencias en formato IEEE.
+- Revisé el estado del repositorio después de los cambios del equipo: la calibración del nivel en la maqueta y la actualización de las bitácoras de mis compañeros.
+- Actualicé esta bitácora con lo realizado desde la entrega.
+
+### Avances
+- Artículo de investigación terminado.
+- (equipo) Se calibró el sensor ultrasónico con medidas reales de la maqueta: el 0 % corresponde a 16,8 cm del sensor y el 100 % a 3,0 cm (commits `c238e17` y `ae10c55`, integrados en `main` mediante el Pull Request #2).
+- (equipo) Se determinó que el servomotor funciona pero no recibe suficiente corriente cuando se alimenta por el ESP32, y por eso no llega a girar.
+
+### Dificultades encontradas
+- Mi documentación se escribió antes de que la maqueta estuviera calibrada, por lo que algunas partes quedaron desactualizadas. En concreto, `docs/pruebas.md` dice que el servomotor probablemente está dañado, y la prueba posterior del equipo mostró que el problema es la corriente.
+- Tuve que separar en el artículo lo que se probó de lo que está pendiente, para no presentar como resultado algo que no se había validado (servo y WiFi).
+
+### Soluciones implementadas
+- Dejé anotado que la información sobre el servomotor debe corregirse en `docs/pruebas.md` y en los requerimientos RNF-03 y RNF-04, a partir de la bitácora de Anthony.
+- En el artículo reporté las limitaciones junto con los resultados.
+
+### Decisiones técnicas
+- Citar en el artículo solo fuentes que pueda verificar (artículos, tesis, libros, normas y documentación oficial) y que correspondan con las referencias del final, como pide el enunciado.
+- Dejar los resultados negativos (error de medición, servo y WiFi) en el artículo y no omitirlos.
+
+### Pruebas efectuadas
+- No aplica en mi parte: semana de redacción.
+
+### Aprendizajes obtenidos
+- Cómo estructurar un artículo académico y citar en formato IEEE, con numeración por orden de aparición.
+- Que la documentación y el artículo deben actualizarse cuando cambia el prototipo, porque si no se contradicen con lo que realmente se probó.
+
+### Próximos pasos
+- Corregir `docs/pruebas.md` y los requerimientos RNF-03 y RNF-04 con el estado actual del servomotor y la calibración.
 - Preparar la defensa individual: flujo de un dato, los tres paradigmas, la histéresis del 20 % y 90 %, el divisor de voltaje y las limitaciones.
