@@ -83,15 +83,11 @@
     <path d="M270 524 H600" stroke="#2b9348"/>
     <path d="M270 552 H600" stroke="#1971c2"/>
   </g>
-  <!-- resistencias 220 -->
-  <g>
-    <rect x="420" y="488" width="50" height="16" rx="3" fill="#d2b48c" stroke="#8b6b3d"/>
-    <rect x="420" y="516" width="50" height="16" rx="3" fill="#d2b48c" stroke="#8b6b3d"/>
-    <rect x="420" y="544" width="50" height="16" rx="3" fill="#d2b48c" stroke="#8b6b3d"/>
-    <g font-size="11" fill="#5a3d12" text-anchor="middle"><text x="445" y="500">220Ω</text><text x="445" y="528">220Ω</text><text x="445" y="556">220Ω</text></g>
-  </g>
-  <path d="M270 576 H300" stroke="#222" stroke-width="3"/>
-  <rect x="300" y="566" width="44" height="20" rx="10" fill="#222"/><text x="322" y="580" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">GND</text>
+  <path d="M270 576 H320" stroke="#222" stroke-width="3"/>
+  <rect x="320" y="568" width="50" height="16" rx="3" fill="#d2b48c" stroke="#8b6b3d"/>
+  <text x="345" y="580" text-anchor="middle" font-size="11" fill="#5a3d12">1 kΩ</text>
+  <path d="M370 576 H386" stroke="#222" stroke-width="3"/>
+  <rect x="386" y="566" width="44" height="20" rx="10" fill="#222"/><text x="408" y="580" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">GND</text>
 
   <!-- Buzzer -->
   <text x="190" y="616" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2733">Buzzer</text>
@@ -146,16 +142,16 @@
   <!-- Echo con divisor -->
   <path d="M1060 400 H1040" stroke="#fab005" stroke-width="4"/>
   <rect x="990" y="392" width="50" height="16" rx="3" fill="#d2b48c" stroke="#8b6b3d"/>
-  <text x="1015" y="404" text-anchor="middle" font-size="11" fill="#5a3d12">1 kΩ</text>
+  <text x="1015" y="404" text-anchor="middle" font-size="11" fill="#5a3d12">10 kΩ</text>
   <path d="M990 400 H900 V468 H800" stroke="#fab005" stroke-width="4" fill="none"/>
   <circle cx="900" cy="440" r="5" fill="#fab005"/>
   <path d="M900 440 H930" stroke="#fab005" stroke-width="3"/>
   <rect x="930" y="432" width="50" height="16" rx="3" fill="#d2b48c" stroke="#8b6b3d"/>
-  <text x="955" y="444" text-anchor="middle" font-size="11" fill="#5a3d12">2 kΩ</text>
+  <text x="955" y="444" text-anchor="middle" font-size="11" fill="#5a3d12">10 kΩ</text>
   <path d="M980 440 H988" stroke="#222" stroke-width="3"/>
   <rect x="988" y="430" width="44" height="20" rx="10" fill="#222"/><text x="1010" y="444" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">GND</text>
   <text x="905" y="530" font-size="12" fill="#5f6b78">divisor de voltaje: protege</text>
-  <text x="905" y="545" font-size="12" fill="#5f6b78">el pin D18 (5 V → 3,3 V)</text>
+  <text x="905" y="545" font-size="12" fill="#5f6b78">el pin D18 (5 V → 2,5 V)</text>
   <!-- VCC, GND, OUT -->
   <path d="M1060 342 H1046" stroke="#d62828" stroke-width="3"/>
   <rect x="1002" y="332" width="44" height="20" rx="10" fill="#d62828"/><text x="1024" y="346" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">5V</text>
@@ -193,8 +189,8 @@
     <text x="500" y="1050">☐ Buzzer</text>
     <text x="500" y="1074">☐ Servo SG92R</text>
     <text x="500" y="1098">☐ Pulsador</text>
-    <text x="500" y="1122">☐ 3 resistencias de 220 Ω</text>
-    <text x="500" y="1146">☐ 1 resistencia de 1 kΩ y 1 de 2 kΩ (o dos de 1 kΩ en serie)</text>
+    <text x="500" y="1122">☐ 1 resistencia de 1 kΩ (negativo del LED RGB)</text>
+    <text x="500" y="1146">☐ 2 resistencias de 10 kΩ (divisor del Echo)</text>
     <text x="950" y="1050">☐ Protoboard</text>
     <text x="950" y="1074">☐ Jumpers macho-macho y macho-hembra</text>
     <text x="950" y="1098">☐ Recipiente transparente de 2–5 L</text>
@@ -202,6 +198,6 @@
     <text x="950" y="1146">☐ Regla pegada al recipiente</text>
   </g>
   <text x="50" y="1196" font-size="13" fill="#5f6b78">No se usan: NodeMCU, DHT11, PCA9685, encoder, broche de 9 V ni los LEDs sueltos.</text>
-  <text x="50" y="1218" font-size="13" fill="#5f6b78">Si el ESP32 se reinicia al moverse el servo, conectarlo a un cargador de celular de 2 A en lugar de la laptop.</text>
+  <text x="50" y="1218" font-size="13" fill="#5f6b78">El servo va a VIN (5 V del USB): recibe la señal, pero no le llega suficiente corriente para girar. Lo correcto es una fuente de 5 V aparte con GND común.</text>
   <text x="50" y="1240" font-size="13" fill="#5f6b78">Si el LCD prende pero no muestra texto: girar el potenciómetro azul de atrás o cambiar LCD_DIRECCION a 0x3F en config.h.</text>
 </svg>
