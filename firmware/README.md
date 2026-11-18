@@ -50,10 +50,10 @@ Echo, el pulsador y el buzzer. Versión editable: [protoboard.svg](protoboard.sv
 | Componente | GPIO | Nota |
 |------------|------|------|
 | Ultrasónico Trig | 5 | VCC a 5 V (pin VIN) |
-| Ultrasónico Echo | 18 | **Divisor de voltaje**: Echo → 1 kΩ → GPIO 18 → 2 kΩ → GND (RNF-03) |
+| Ultrasónico Echo | 18 | **Divisor de voltaje**: Echo → 10 kΩ → GPIO 18 → 10 kΩ → GND, unos 2,5 V en el pin (RNF-03) |
 | Sensor de agua (AO del módulo) | 34 | VCC del módulo a **3V3** (no 5 V), GND a GND. La sonda va a los 2 pines de arriba del módulo |
 | LCD SDA / SCL | 21 / 22 | VCC a 5 V (VIN). Dirección 0x27 (si no muestra texto: probar 0x3F en `config.h` y girar el potenciómetro azul de atrás) |
-| LED RGB R / G / B | 25 / 26 / 27 | Pin `−`/GND del módulo a GND, 220 Ω por color |
+| LED RGB R / G / B | 25 / 26 / 27 | Pin `−` del módulo a GND a través de **una resistencia de 1 kΩ** |
 | Buzzer | 14 | `−` a GND |
 | Servo (señal, naranja) | 13 | Rojo a 5 V (ver nota de alimentación), marrón a GND |
 | Pulsador | 4 | El otro extremo a GND (usa `INPUT_PULLUP`) |
@@ -67,18 +67,18 @@ Echo, el pulsador y el buzzer. Versión editable: [protoboard.svg](protoboard.sv
 
 ### Alimentación del servo
 
-El grupo no tiene fuente aparte, solo el USB. El SG92R es pequeño y en la maqueta se
-alimenta del pin **VIN** (5 V del USB). Funciona porque solo se mueve al abrir o cerrar,
-pero si el ESP32 se reinicia justo cuando el servo se mueve, es por falta de corriente:
-usar un cargador de celular de 2 A en lugar del puerto de la laptop.
-Se documenta como limitación frente a RNF-04 (lo ideal es una fuente propia de 5 V con GND común).
+El grupo no tiene fuente aparte, solo el USB, así que el SG92R se alimenta del pin
+**VIN** (5 V del USB). En las pruebas el servo recibe la señal de control, pero no le
+llega suficiente corriente: zumba y vibra sin girar, también con un cargador de celular.
+Se documenta como limitación frente a RNF-04: lo correcto es una fuente propia de 5 V con GND común.
 
 ## Calibración antes de las pruebas
 
 En `config.h`:
 
-- `ALTURA_TANQUE_CM`: distancia del sensor al fondo del recipiente, medida con regla.
-- `UMBRAL_FUGA`: ver el valor crudo del sensor de agua en seco y mojado (prueba P04) y dejar el umbral en medio.
+- `ALTURA_TANQUE_CM`: distancia del sensor al fondo del recipiente (0 %). Medida en la maqueta: **16,8 cm**.
+- `DISTANCIA_LLENO_CM`: distancia del sensor al agua con el tanque lleno (100 %). Medida en la maqueta: **3,0 cm** (el ultrasónico no mide bien por debajo de 2 cm).
+- `UMBRAL_FUGA`: ver el valor crudo del sensor de agua en seco y mojado (prueba P04) y dejar el umbral en medio. Medido: 4095 en seco y unos 3300 mojado, umbral en **3700**.
 - `LCD_DIRECCION`: 0x27 o 0x3F según el módulo.
 
 ## Verificación

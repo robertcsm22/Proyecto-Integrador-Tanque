@@ -5,15 +5,15 @@
 
 // ---------------- Pines (ESP32 DevKit) ----------------
 const int PIN_TRIG     = 5;   // HC-SR04 Trig
-const int PIN_ECHO     = 18;  // HC-SR04 Echo (con divisor 1 kOhm / 2 kOhm, RNF-03)
+const int PIN_ECHO     = 18;  // HC-SR04 Echo (con divisor 10 kOhm / 10 kOhm, ~2,5 V, RNF-03)
 const int PIN_AGUA     = 34;  // sensor de agua (entrada analogica)
 const int PIN_SDA      = 21;  // LCD I2C
 const int PIN_SCL      = 22;
-const int PIN_LED_R    = 25;  // LED RGB catodo comun, 220 Ohm por color
+const int PIN_LED_R    = 25;  // LED RGB catodo comun, una resistencia de 1 kOhm en el comun
 const int PIN_LED_G    = 26;
 const int PIN_LED_B    = 27;
 const int PIN_BUZZER   = 14;
-const int PIN_SERVO    = 13;  // alimentado con fuente aparte y GND comun (RNF-04)
+const int PIN_SERVO    = 13;  // alimentado desde VIN; lo ideal es fuente aparte con GND comun (RNF-04)
 const int PIN_PULSADOR = 4;   // a GND, con INPUT_PULLUP
 
 // ---------------- Tanque y umbrales ----------------
